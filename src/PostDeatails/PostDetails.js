@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Comment from "../Component/Comment/Comment";
 import { makeStyles } from "@material-ui/core/styles";
+import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt';
 
 const useStyles = makeStyles({
   title:{
@@ -18,6 +19,7 @@ const PostDetails = (props) => {
   const classes = useStyles();
   const { id } = useParams();
   const [post, setPost] = useState({});
+  const [like, setLike] = useState();
 
   useEffect(() => {
     const url = `https://jsonplaceholder.typicode.com/posts/${id}`;
@@ -25,6 +27,12 @@ const PostDetails = (props) => {
       .then((res) => res.json())
       .then((data) => setPost(data));
   },[]);
+
+  const handel = ()=>{
+    const color = like? ' ' : 'primary';
+     setLike(color);
+  }
+
   return (
     <div className="container">
       <hr/>
@@ -33,6 +41,7 @@ const PostDetails = (props) => {
       <p>
         <b>Post:</b> {post.body}
       </p>
+      <ThumbUpAltIcon onClick={handel} color={like}/>
       <hr />
      
      {
