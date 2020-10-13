@@ -3,8 +3,8 @@ import "./App.css";
 import Home from "./Component/Home/Home";
 import Navbar from "./Component/NavBar/Navbar";
 import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
-import NotFound from "./NotFound/NotFound";
-import PostDetails from "./PostDeatails/PostDetails";
+import NotFound from "./Component/NotFound/NotFound";
+import PostDetails from "./Component/PostDeatails/PostDetails";
 
 function App() {
   return (
